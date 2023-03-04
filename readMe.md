@@ -1,2 +1,1 @@
-
-hi
+Mae and Liz hackathon project
