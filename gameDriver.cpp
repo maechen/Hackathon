@@ -58,11 +58,13 @@ int main(){
     cin >> name;
     system("clear");
 
-    cout << "DIRECTIONS:" << endl;
-    cout << "*If you forget what the buildings are, the mapkey is always displayed above the map." << endl;
-    cout << "*Move your character using AWSD keys." << endl;
-    cout << "*Enter the corresponding number when selecting actions / collecting items." << endl;
-    cout << "*Once your inventory is full, you can only swap out the last item." << endl;
+    cout << "                                   DIRECTIONS:" << endl;
+    cout << "-------------------------------------------------------------------------------------" << endl;
+    cout << "* If you forget what the buildings are, the mapkey is always displayed above the map." << endl;
+    cout << "* Move your character using AWSD keys." << endl;
+    cout << "* Enter the corresponding number when selecting actions / collecting items." << endl;
+    cout << "* Once your inventory is full, you can only swap out the last item." << endl;
+    cout << "* To quit game, enter CTRL + c" << endl;
     cout << endl;
     cout << BLACK << "Press 'c' to continue" << RESET << endl;
     cin >> cont;
