@@ -3,6 +3,10 @@
 #include "auxilliary_functions.cpp"
 using namespace std;
 
+/*
+CREDIT: This map class uses a template provided by CU Boulder's CSCI 1300 2022 Fall Semester Class
+*/
+
 Map::Map()
 {
     resetMap();
@@ -10,7 +14,6 @@ Map::Map()
 
 void Map::resetMap()
 {
-    // resets player position, count values, and initializes values in position arrays to -1
     player_position_[0] = 3;
     player_position_[1] = 2;
 
@@ -37,19 +40,16 @@ void Map::resetMap()
     }
 }
 
-// return player's row position
 int Map::getPlayerRow()
 {
     return player_position_[0];
 }
 
-// return player's column position
 int Map::getPlayerCol()
 {
     return player_position_[1];
 }
 
-// set player position, if in range
 void Map::setPlayerPosition(int row, int col)
 {
     if (isOnMap(row, col))
@@ -59,30 +59,16 @@ void Map::setPlayerPosition(int row, int col)
     }
 }
 
-// returns member variable num_rows_
 int Map::getNumRows()
 {
     return num_rows_;
 }
 
-// returns member variable num_cols_
 int Map::getNumCols()
 {
     return num_cols_;
 }
 
-/*
- * @brief Checks if the given (row, col) position is on the map
- *
- * Algorithm:
- *  if 0 <= row < num_rows_ and 0 <= col < num_cols_:
- *      return true
- *  else:
- *      return false
- *
- * Parameters: row (int), col (int)
- * Returns: bool
- */
 bool Map::isOnMap(int row, int col)
 {
     if (0 <= row && row < num_rows_ && 0 <= col && col < num_cols_)
@@ -92,19 +78,6 @@ bool Map::isOnMap(int row, int col)
     return false;
 }
 
-/*
- * Algorithm: Checks if the location is an NPC location
- * if (row, col) is not within the map boundaries
- *      return false
- * loop i from 0 to npc_count_
- *      if (row,col) is a npc location
- *          return true
- * return true
- * Parameters: row (int), col (int)
- * return false
- * Parameters: none
- * Return: boolean (bool)
- */
 bool Map::isRoomLocation(int row, int col)
 {
     if (!isOnMap(row, col))
@@ -137,17 +110,6 @@ bool Map::isTreeLocation(int row, int col)
     return false;
 }
 
-/*
- * Algorithm: Checks if the given row and column is an explored space
- * if (row, col) is not on the map:
- *     return false
- * if map_data_[row][col] is ' ':
- *     return true
- * if (row, col) is npc location and has been found:
- *     return true
- * else:
- *     return false
- */
 bool Map::isExplored(int row, int col)
 {
     if (!isOnMap(row, col))
@@ -172,21 +134,6 @@ bool Map::isExplored(int row, int col)
     return false;
 }
 
-/*
- * Algorithm: Checks if the given row and column on map is a free space
- * if row and column is not within the map boundaries
- *      return false
- * if row and column is a npc location
- *      return false
- * if row and column is a room location
- *      return false
- * if row and column is the dungeon exit
- *      return false
- * return true
- *
- * Parameters: row (int), col (int)
- * Return: boolean (bool)
- */
 bool Map::isFreeSpace(int row, int col)
 {
     if (!isOnMap(row, col))
@@ -205,21 +152,6 @@ bool Map::isFreeSpace(int row, int col)
     return true;
 }
 
-/*
- * Algorithm: Create an NPC on the map
- * if npc is present on map
- *      return false
- * if (row,col) is not a free space
- *      return false
- * store row and col values in npcPosition array
- * mark NPC as hidden
- * set (row,col) value in map_data_ to 'N'
- * increment npc_count_
- * return true
- *
- * Parameters: row (int), col (int)
- * Return: boolean (bool)
- */
 bool Map::addRoom(int row, int col)
 {
     if (room_count_ >= max_locations_)
@@ -275,16 +207,6 @@ bool Map::addTree(int row, int col)
     return true;
 }
 
-/*
- * Algorithm: Mark (row, col) as explored, either revealing NPC or empty space
- * if (row, col) is NPC location
- *      mark npc at player_position_ as found
- * else if (row, col) is a free space
- *      mark space as explored in map data
- *
- * Parameters: row (int), col (int)
- * Return: boolean (bool)
- */
 void Map::exploreSpace(int row, int col)
 {
     for (int i = 0; i < room_count_; i++)
@@ -302,26 +224,6 @@ void Map::exploreSpace(int row, int col)
     }
 }
 
-/*
- * Algorithm: Make the player move based on the given command
- * if user inputs w and if its not the top row of the map
- *      Move the player up by one row
- * if user inputs s and if its not the bottom row of the map
- *      Move the player down by one row
- * if user inputs a and if its not the leftmost column
- *      Move the player left by one column
- * if user inputs d and if its not the rightmost column
- *      Move the player right by one column
- * if player moved
- *      if new location is an NPC location
- *          mark new location as explored
- *      return true
- * else
- *      return false
- *
- * Parameters: direction (char)
- * Return: boolean (bool)
- */
 bool Map::move(char direction)
 {
     // check input char and move accordingly
@@ -378,23 +280,6 @@ bool Map::move(char direction)
     return true;
 }
 
-/*
- * Algorithm: This function prints a 2D map in the terminal.
- * Loop i from 0 to number of rows
- *      Loop j from 0 to number of columns
- *          if player position is at (i,j)
- *              print 'X'
- *          else if npc is at (i,j)
- *              if npc has been found:
- *                  print 'N'
- *              else
- *                  print '-'
- *          else
- *              print the value of (i,j) in map_data_
- *
- * Parameters: none
- * Return: nothing (void)
- */
 void Map::displayMap()
 {
     for (int i = 0; i < num_rows_; i++)

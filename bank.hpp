@@ -13,13 +13,10 @@ class Bank
     private:
         bool key;
         bool gold;
-        bool leave;
 
     public:
         Bank();
         bool getKey();
-        bool getLeave();
-        bool setLeave(bool stat);
         void setKey(bool stat);
         bool getGold();
         void setGold(bool stat);

@@ -36,15 +36,15 @@ bool Character::searchInventory(string tool){
             if(inventory[i] == tool) return true;
         }
     }
-    else{
-        inventory[4] = tool;
-    }
     return false;
 }
 
 void Character::setInventory(string tool){
     if(isFull() == false){
         inventory[counter++] = tool;
+    }
+    else{
+        inventory[4] = tool;
     }
 }
 

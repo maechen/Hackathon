@@ -1,9 +1,8 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-#ifndef BANK_H
-#define BANK_H
+#ifndef TREE_H
+#define TREE_H
 
 #pragma once
 
@@ -17,7 +16,8 @@ class Tree
         Tree();
         bool getPass();
         bool setPass(bool stat);
-        void displayTreeMenu(bool candleStat, bool sawStat, bool explodeStat, bool ladderStat,bool brickStat, bool goldStat, bool hammerStat, string Char_name);
+        void displayTreeMenu(bool candleStat, bool sawStat, bool explodeStat, bool ladderStat, string name);
+        void displayPassed(bool brickStat, bool hammerStat, bool goldStat, string name);
 };
 
 #endif
