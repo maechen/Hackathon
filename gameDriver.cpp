@@ -6,6 +6,10 @@
 #include "farm.hpp"
 #include "bank.hpp"
 #include "church.hpp"
+#include "store.hpp"
+#include "school.hpp"
+#include "character.hpp"
+#include "tree.hpp"
 
 using namespace std;
 
@@ -19,11 +23,13 @@ int main(){
     // assign name to character object
     cout << "directions" << endl;
     Map m;
-    //Bank b;
+    Bank b;
     Farm f;
     Church c;
-    //Store s;
-    //School sc;
+    Store s;
+    School sc;
+    Character p(name);
+    Tree t;
 
     m.addRoom(1,1); // FARM
     m.addRoom(2,1); // STORE
@@ -57,41 +63,60 @@ int main(){
 
     while(true){
         m.displayMap();
+        p.printInventory();
         
         if(m.getPlayerRow() == 3 && m.getPlayerCol() == 4){ // BANK
-           //b.displayBank();
-           //b.printBankMenu(f.getShovel(), s.getExplosive(), name);
+            b.displayBank();
+            b.printBankMenu(f.getShovel(), s.getExplosive(), name);
+            if(!b.getGold() && !p.searchInventory("  🧽 ")) p.setInventory("  🧽 ");
+            if(!b.getKey() && !p.searchInventory("  🔑 ")) p.setInventory("  🔑 ");
+            system("clear");
+            m.move('a');
+            m.displayMap();
+            p.printInventory();
         }
         else if(m.getPlayerRow() == 1 && m.getPlayerCol() == 4){ // SCHOOL
-            // print library room
-            //call teacher words
-            //call school menu
+            sc.displaySchool();
+            sc.schoolMenu();
+            if(!sc.getSled() && !p.searchInventory("  🛷 ")) p.setInventory("  🛷 ");
+            if(!sc.getLadder() && !p.searchInventory("  🪜 ")) p.setInventory("  🪜 ");
+            system("clear");
+            m.move('a');
+            m.displayMap();
+            p.printInventory();
         }
         else if(m.getPlayerRow() == 2 && m.getPlayerCol() == 4){ // CHURCH
             c.displayChurch();
             c.churchMenu(name);
+            if(!c.getBricks() && !p.searchInventory("  🧱 ")) p.setInventory("  🧱 ");
+            if(!c.getCandles() && !p.searchInventory("  🕯️ ")) p.setInventory("  🕯️ ");
+            system("clear");
+            m.move('a');
+            m.displayMap();
+            p.printInventory();
+        }
+        else if(m.getPlayerRow() == 2 && m.getPlayerCol() == 1){ // STORE
+            s.displayStore();
+            s.storeMenu();
+            if(!s.getExplosive() && !p.searchInventory("  💣 ")) p.setInventory("  💣 ");
+            if(!s.getSaw() && !p.searchInventory("  🪚 ")) p.setInventory("  🪚 ");
             system("clear");
             m.move('d');
             m.displayMap();
-        }
-        else if(m.getPlayerRow() == 2 && m.getPlayerCol() == 1){ // STORE
-            //print store display
-            //print store words
-            //print store menu
+            p.printInventory();
         }
         else if(m.getPlayerRow() == 1 && m.getPlayerCol() == 1){ // FARM
             f.displayFarm();
             f.farmMenu(name);
+            if(!f.getShovel() && !p.searchInventory("  🧹 ")) p.setInventory("  🧹 ");
+            if(!f.getHammer() && !p.searchInventory("  🔨 ")) p.setInventory("  🔨 ");
             system("clear");
             m.move('d');
             m.displayMap();
+            p.printInventory();
         }
         else if(m.isTreeLocation(m.getPlayerRow(),m.getPlayerCol())){
-            // call character function that checks inventory and prints menues based on that
-            //if( tree is broken thru){
-            // call tree function that displays menues to break glass, checks inventory
-            cout << "CANT" << endl;
-            
+            t.displayTreeMenu(c.getCandles(), s.getSaw() , s.getExplosive() , sc.getLadder() ,c.getBricks(), b.getGold(), f.getHammer(), name);
         }
         
         

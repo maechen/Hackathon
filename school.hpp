@@ -20,7 +20,7 @@ class School
         bool getLadder();
         void setLadder(bool stat);
         void displaySchool();
-        void storeMenu();
+        void schoolMenu();
 };
 
 #endif

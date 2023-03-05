@@ -33,6 +33,7 @@ void Bank::displayBank(){
     cout << "" << endl;
 }
 void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
+    string cont;
     int userChoice;
     cout << "👨🏻‍💼- 'Welcome to the Bank. I am the teller here. Lately things have seemed weird about the vault." << endl;
     cout << "______MENU______" << endl;
@@ -44,9 +45,18 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
 
     if(userChoice == 1){
         setKey(false);
+        system("clear");
+        cout << "** 🔑 key has been added to inventory **" << endl;
+        cout << "Press 'c' to continue" << endl;
+        cin >> cont;
     }else if(userChoice == 2){
         setGold(false);
+        system("clear");
+        cout << "** 🧽 gold brick has been added to inventory **" << endl;
+        cout << "Press 'c' to continue" << endl;
+        cin >> cont;
     }else if(userChoice == 3){
+        system("clear");
         if(getKey() == false){
             int vaultChoice;
             cout << "|__VAULT___|" << endl;
@@ -58,9 +68,9 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
             cout << "3. Leave vault and bank." << endl;
             cin >> vaultChoice;
 
-            do{
             if(vaultChoice == 1){
                 if(shovelStat == false){
+                    system("clear");
                     cout << "You begin to shovel under the vault ground." << endl;
                     cout << "Eventually everything begins more hollowed out." << endl;
                     cout << "You walk across ground until you come to a barrier." << endl;
@@ -70,32 +80,52 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
                     cout << "You turn again, to be faced with a sea of snowglobes lining shelves" << endl;
                     cout << "each with their own little town name." << endl;
                     cout << "END" << endl;
-                    setLeave(true);
+                    exit(1);
                 }else{
                     cout << "You don't have a shovel you cannot dig out." << endl;
+                    cout << "Enter 'c' to continue" << endl;
+                    cin >> cont;
                 }
             }else if(vaultChoice == 2){
                 if(explosiveStat == false){
+                    system("clear");
                     cout << "Unfortunately, blowing up the vault while inside results in your death." << endl;
                     cout << "R.I.P." << Char_name << "⚰️🪦" << endl;
-                    return;
+                     cout << "               _______" << endl;
+ cout << "         _____/      \\_____" << endl;
+ cout << "        |                  ||" << endl;
+ cout << "        |  _     ___   _   ||" << endl;
+ cout << "        | | \\     |   |  \\ ||" << endl;
+ cout << "        | |  |    |   |  | ||" << endl;
+ cout << "        | |_/     |   |_/  ||" << endl;
+ cout << "        | | \\     |   |    ||" << endl;
+ cout << "        | |  \\    |   |    ||" << endl;
+ cout << "        | |   \\. _|_. | .  ||" << endl;
+ cout << "        |                  ||" << endl;
+ cout << "        --------------------" << endl;
+                    exit(1);
                 }else{
                     cout << "You don't have an explosive you cannot do this." << endl;
+                    cout << "Enter 'c' to continue" << endl;
+                    cin >> cont;
                 }
             }else if(vaultChoice == 3){
-                setLeave(true);
+                return;
             }
-            }while(vaultChoice >=1 && vaultChoice <=3);
 
         }else{
             cout << "You cannot enter the vault, you dont have a key. Leave Bank" << endl;
-          setLeave(true);
+            cout << "Enter 'c' to continue" << endl;
+            cin >> cont;
+            return;
         }
     }else if(userChoice == 4){
-        setLeave(true);
+        return;
     }else{
         cout << "👨🏻‍💼- 'You didn't choose a valid option. Leave Bank" << endl;
-        setLeave(true);
+        cout << "Enter 'c' to continue" << endl;
+        cin >> cont;
+        return;
     }
 }
 

@@ -19,24 +19,38 @@ void School::setLadder(bool stat){
     ladder = stat;
 }
 void School::displaySchool(){
+//fix this
  cout << "school display" << endl;
 }
-void School::storeMenu(){
-cout << "👩🏽‍🦰 - 'Welcome to the school/library! '" << endl;
+void School::schoolMenu(){
+    string cont;
+    cout << "👩🏽‍🦰 - 'Welcome to the school/library! '" << endl;
     cout << "' What can I help you with today? '" << endl;
-    int churchChoice;
+    int schoolChoice;
     cout << "____MENU____" << endl;
     cout << "1. 🛷 Collect sled" << endl;
     cout << "2. 🪜 Collect Ladder" << endl;
     cout << "3. Leave the School" << endl;
-    if(churchChoice == 1){
+    cin >> schoolChoice;
+
+    if(schoolChoice == 1){
         setSled(false);
-    }else if(churchChoice == 2){
+        system("clear");
+        cout << "** 🛷 sled has been added to inventory **" << endl;
+        cout << "Press 'c' to continue" << endl;
+        cin >> cont;
+    }else if(schoolChoice == 2){
         setLadder(false);
-    }else if(churchChoice == 3){
+        system("clear");
+        cout << "** 🪜 ladder has been added to inventory **" << endl;
+        cout << "Press 'c' to continue" << endl;
+        cin >> cont;
+    }else if(schoolChoice == 3){
         return;
     }else{
         cout << "👩🏽‍🦰 - 'That wasn't a choice, leave the school now'"<< endl;
+        cout << "Enter 'c' to continue" << endl;
+        cin >> cont;
         return;
     }
 }

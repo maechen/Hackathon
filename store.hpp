@@ -11,7 +11,6 @@ class Store
     private:
         bool saw;
         bool explosive;
-        string clerk[];
 
     public:
         Store();
@@ -19,6 +18,8 @@ class Store
         bool getExplosive();
         void setSaw(bool stat);
         void setExplosive(bool stat);
+        void displayStore();
+        void storeMenu();
 
 };
 
