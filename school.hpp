@@ -19,8 +19,8 @@ class School
         void setSled(bool stat);
         bool getLadder();
         void setLadder(bool stat);
-        //function that prints the school display
-        void printSchool();
+        void displaySchool();
+        void storeMenu();
 };
 
 #endif

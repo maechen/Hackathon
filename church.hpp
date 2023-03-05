@@ -20,6 +20,8 @@ class Church
         bool getBricks();
         void setCandles(bool stat);
         void setBricks(bool stat);
+        void displayChurch();
+        void churchMenu(string Char_name);
 
 };
 
