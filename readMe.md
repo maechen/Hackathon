@@ -1,5 +1,6 @@
 *******************************
 SILVER HOLLOW HackCu-9 PROJECT
+------------------------------
 *******************************
 By Mae Chen and Elizabeth Coleman
 
