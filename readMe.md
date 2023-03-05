@@ -4,6 +4,7 @@ SILVER HOLLOW Command Line Game
 HackCU-9 Beginner Track Submission
 *******************************
 By Mae Chen and Elizabeth Coleman
+   @maechen and @elco5414
 
 HOW TO COMPILE:
 ----------------
