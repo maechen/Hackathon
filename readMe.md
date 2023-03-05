@@ -1,6 +1,7 @@
 *******************************
-SILVER HOLLOW HackCu-9 PROJECT
+SILVER HOLLOW Command Line Game
 ------------------------------
+HackCU-9 Beginner Track Submission
 *******************************
 By Mae Chen and Elizabeth Coleman
 
