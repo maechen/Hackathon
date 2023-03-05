@@ -1,5 +1,6 @@
 #include <iostream>
 #include "store.hpp"
+#include "auxilliary_functions.cpp"
 
 using namespace std;
 Store::Store(){
@@ -53,20 +54,20 @@ void Store::storeMenu(){
     if(storeChoice == 1){
         setSaw(false);
         system("clear");
-        cout << "** 🪚 Saw has been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW <<  "** 🪚 Saw has been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(storeChoice == 2){
         setExplosive(false);
         system("clear");
-        cout << "** 💣 Explosive has been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 💣 Explosive has been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(storeChoice == 3){
         return;
     }else{
         cout << "🧓 - 'That wasn't a choice, leave now!'"<< endl;
-        cout << "Enter 'c' to continue" << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
         return;
     }

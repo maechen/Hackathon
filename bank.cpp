@@ -1,5 +1,6 @@
 #include <iostream>
 #include "bank.hpp"
+#include "auxilliary_functions.cpp"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ void Bank::setGold(bool stat){
 }
 void Bank::displayBank(){
 
-cout << "___________________________________" <<endl;
+cout << GREEN << "___________________________________" <<endl;
 cout << "|#######====================#######|" <<endl;
 cout << "|#(1)*UNITED STATES OF AMERICA*(1)#|" <<endl;
 cout << "|#**          /===\\   ********  **#|" <<endl;
@@ -30,7 +31,7 @@ cout << "|** {G}      | (-) |             **|" <<endl;
 cout << "|#*  ******  | /v\\ |    O N E    *#|"<<endl;
 cout << "|#(1)         \\===/            (1)#|"<<endl;
 cout << "|##=========ONE DOLLAR===========##|"<<endl;
-cout << "------------------------------------"<<endl;
+cout << "------------------------------------"<< RESET << endl;
 
 }
 
@@ -48,14 +49,14 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
     if(userChoice == 1){
         setKey(false);
         system("clear");
-        cout << "** 🔑 Key has been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 🔑 Key has been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(userChoice == 2){
         setGold(false);
         system("clear");
-        cout << "** 🧽 Gold Brick has been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 🧽 Gold Brick has been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(userChoice == 3){
         system("clear");
@@ -73,7 +74,7 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
             if(vaultChoice == 1){
                 if(shovelStat == false){
                     system("clear");
-                    cout << "You begin to shovel under the vault ground." << endl;
+                    cout << CYAN << "You begin to shovel under the vault ground." << endl;
                     cout << "Eventually you discover an empty room underneath." << endl;
                     cout << "You hop on down and explore the room until you come to a barrier." << endl;
                     cout << "You break out of the barrier with the shovel." << endl;
@@ -82,42 +83,43 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
                     cout << "You turn again, to be faced with a sea of snowglobes lining shelves" << endl;
                     cout << "each with their own little town name." << endl;
                     cout << "END" << endl;
-                    cout<<"       ____" << endl;
-                    cout<<"    .-  +'   -. " << endl;   
+                    cout<<"        ____" << endl;
+                    cout<<"     .-  +'   -. " << endl;   
                     cout<<"    /.'.'A_'*`.\\  " << endl;
                     cout<<"   |:.*'/\\-\\. ':|   " << endl;
                     cout<<"   |:.'.|| |.'*:|  " << endl;
                     cout<<"    \\:~^~^~^~^:/   " << endl;
                     cout<<"     /`-....-'\\       " << endl;  
                     cout<<"   /          \\   " << endl;       
-                    cout<<"    `-.,____,.-'    " << endl; 
+                    cout<<"    `-.,____,.-'    " << RESET << endl; 
                     exit(1);
                 }else{
                     cout << "You don't have a shovel you cannot dig out." << endl;
-                    cout << "Enter 'c' to continue" << endl;
+                    cout << BLACK << "Press 'c' to continue" << RESET << endl;
                     cin >> cont;
                 }
             }else if(vaultChoice == 2){
                 if(explosiveStat == false){
                     system("clear");
-                    cout << "Unfortunately, blowing up the vault while inside results in your death." << endl;
+                    cout << RED << "Unfortunately, blowing up the vault while inside results in your death." << endl;
                     cout << "R.I.P. " << Char_name << " ⚰️🪦" << endl;
-                     cout << "               _______" << endl;
- cout << "         _____/      \\_____" << endl;
- cout << "        |                  ||" << endl;
- cout << "        |  _     ___   _   ||" << endl;
- cout << "        | | \\     |   |  \\ ||" << endl;
- cout << "        | |  |    |   |  | ||" << endl;
- cout << "        | |_/     |   |_/  ||" << endl;
- cout << "        | | \\     |   |    ||" << endl;
- cout << "        | |  \\    |   |    ||" << endl;
- cout << "        | |   \\. _|_. | .  ||" << endl;
- cout << "        |                  ||" << endl;
- cout << "        --------------------" << endl;
+                    cout << "               _______" << endl;
+                    cout << "         _____/      \\_____" << endl;
+                    cout << "        |                  ||" << endl;
+                    cout << "        |  _     ___   _   ||" << endl;
+                    cout << "        | | \\     |   |  \\ ||" << endl;
+                    cout << "        | |  |    |   |  | ||" << endl;
+                    cout << "        | |_/     |   |_/  ||" << endl;
+                    cout << "        | | \\     |   |    ||" << endl;
+                    cout << "        | |  \\    |   |    ||" << endl;
+                    cout << "        | |   \\. _|_. | .  ||" << endl;
+                    cout << "        |                  ||" << endl;
+                    cout << "        --------------------" << endl;
+                    cout << "I guess you will never know what you did all of this for..." << RESET << endl;
                     exit(1);
                 }else{
-                    cout << "You don't have an explosive you cannot do this." << endl;
-                    cout << "Enter 'c' to continue" << endl;
+                    cout << RED << "You don't have an explosive you cannot do this." << RESET << endl;
+                    cout << BLACK << "Press 'c' to continue" << RESET << endl;
                     cin >> cont;
                 }
             }else if(vaultChoice == 3){
@@ -125,8 +127,8 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
             }
 
         }else{
-            cout << "You cannot enter the vault, you dont have a key. Now leaving Bank." << endl;
-            cout << "Enter 'c' to continue" << endl;
+            cout << RED << "You cannot enter the vault, you don't have a key. Now leaving Bank." << RESET << endl;
+            cout << BLACK << "Press 'c' to continue" << RESET << endl;
             cin >> cont;
             return;
         }
@@ -134,7 +136,7 @@ void Bank::printBankMenu(bool shovelStat, bool explosiveStat, string Char_name){
         return;
     }else{
         cout << "👨🏻 - 'You didn't choose a valid option. Leave now!" << endl;
-        cout << "Enter 'c' to continue" << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
         return;
     }

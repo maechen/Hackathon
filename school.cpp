@@ -1,5 +1,6 @@
 #include <iostream>
 #include "school.hpp"
+#include "auxilliary_functions.cpp"
 
 using namespace std;
 School::School(){
@@ -46,20 +47,20 @@ void School::schoolMenu(){
     if(schoolChoice == 1){
         setSled(false);
         system("clear");
-        cout << "** 🛷 Sled has been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 🛷 Sled has been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(schoolChoice == 2){
         setLadder(false);
         system("clear");
-        cout << "** 🪜 Ladder has been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 🪜 Ladder has been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(schoolChoice == 3){
         return;
     }else{
         cout << "👱‍♀️ - 'That wasn't a choice, leave now!'"<< endl;
-        cout << "Enter 'c' to continue" << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
         return;
     }

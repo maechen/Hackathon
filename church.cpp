@@ -1,5 +1,6 @@
 #include <iostream>
 #include "church.hpp"
+#include "auxilliary_functions.cpp"
 
 using namespace std;
 
@@ -44,20 +45,20 @@ void Church::churchMenu(string Char_name){
     if(churchChoice == 1){
         setCandles(false);
         system("clear");
-        cout << "** 🕯️ Candle has been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 🕯️ Candle has been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(churchChoice == 2){
         setBricks(false);
         system("clear");
-        cout << "** 🧱 Bricks have been added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 🧱 Bricks have been added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }else if(churchChoice == 3){
         return;
     }else{
         cout << "🧑 - 'That wasn't a choice, leave now!'"<< endl;
-        cout << "Enter 'c' to continue" << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
         return;
     }

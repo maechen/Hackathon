@@ -22,7 +22,7 @@ void displayKey(){
 int main(){
     string cont; 
     system("clear");
-    cout << "**********************************************************************************" << endl;
+    cout << BOLDWHITE << "**********************************************************************************" << endl;
     cout << endl;
     cout <<"              SSSSS   III  LL     V       V   EEEEE  RRRRR" << endl;     
     cout <<"              S        I   LL      V     V    E      R   RR" << endl;  
@@ -37,19 +37,19 @@ int main(){
     cout <<"              HH  HH  OO  OO  LL      LL     OO  OO    WW  W  WW" << endl;
     cout <<"              HH  HH   OOOO   LLLLLL  LLLLLL  OOOO      WW   WW" << endl;
     cout << endl;
-    cout << "**********************************************************************************" << endl;
+    cout << "**********************************************************************************" << RESET << endl;
     cout << endl;
 
     //backstory:
-    cout << "On a snowy morning, you wake up to your house shaking. " << endl;
+    cout << CYAN << "On a snowy morning, you wake up to your house shaking. " << endl;
     cout << "It must be another earthquake. " << endl;
     cout << "You've lived in Silver Hollow your whole life, " << endl;
     cout << "but your memory feels a little hazy, " << endl;
     cout << "and you can't quite pinpoint where everything is." << endl;
     cout << "Explore the town to find out where things are, " << endl;
-    cout << "and to figure whats going on here." << endl;
+    cout << "and to figure whats going on here." << RESET << endl;
     cout << endl;
-    cout << "Press 'c' to continue" << endl;
+    cout << BLACK << "Press 'c' to continue" << RESET << endl;
     cin >> cont;
     system("clear");
     cout << "Please enter your name: ";
@@ -64,7 +64,7 @@ int main(){
     cout << "*Enter the corresponding number when selecting actions / collecting items." << endl;
     cout << "*Once your inventory is full, you can only swap out the last item." << endl;
     cout << endl;
-    cout << "Press 'c' to continue" << endl;
+    cout << BLACK << "Press 'c' to continue" << RESET << endl;
     cin >> cont;
     
     system("clear");

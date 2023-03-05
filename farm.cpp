@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "farm.hpp"
+#include "auxilliary_functions.cpp"
 
 
 using namespace std;
@@ -49,8 +50,8 @@ void Farm::farmMenu(string Char_name){
         int choice;
         setHammer(false);
         system("clear");
-        cout << "** 🔨Hammer added to inventory **" << endl;
-        cout << "Press 'c' to continue" << endl;
+        cout << YELLOW << "** 🔨Hammer added to inventory **" << RESET << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
         system("clear");
         cout << "🤠🪓 - 'I WARNED YA'" << endl;
@@ -61,7 +62,7 @@ void Farm::farmMenu(string Char_name){
 
         if(choice == 2){
             system("clear");
-            cout << "Unfortunately the farmer is stronger. You Died." << endl;
+            cout << RED << "Unfortunately the farmer is stronger. You Died." << endl;
             cout << "R.I.P. " << Char_name << " ⚰️🪦" << endl;
  cout << "               _______" << endl;
  cout << "         _____/      \\_____" << endl;
@@ -74,7 +75,7 @@ void Farm::farmMenu(string Char_name){
  cout << "        | |  \\    |   |    ||" << endl;
  cout << "        | |   \\. _|_. | .  ||" << endl;
  cout << "        |                  ||" << endl;
- cout << "        --------------------" << endl;
+ cout << "        --------------------" << RESET << endl;
             exit(1);
         }else{
             return;
@@ -83,7 +84,7 @@ void Farm::farmMenu(string Char_name){
         int choice;
         setShovel(false);
         system("clear");
-        cout << "** 🧹Shovel added to inventory **" << endl;
+        cout << YELLOW << "** 🧹Shovel added to inventory **" << RESET << endl;
         cout << endl;
         cout << "🤠🪓 - 'I WARNED YA'" << endl;
         cout << "What Would You Like to do Now?" << endl;
@@ -93,7 +94,7 @@ void Farm::farmMenu(string Char_name){
 
         if(choice == 2){
             system("clear");
-            cout << "Unfortunately the farmer is stronger. You Died." << endl;
+            cout << RED << "Unfortunately the farmer is stronger. You Died." << endl;
             cout << "R.I.P. " << Char_name << " ⚰️🪦" << endl;
  cout << "               _______" << endl;
  cout << "         _____/      \\_____" << endl;
@@ -106,7 +107,7 @@ void Farm::farmMenu(string Char_name){
  cout << "        | |  \\    |   |    ||" << endl;
  cout << "        | |   \\. _|_. | .  ||" << endl;
  cout << "        |                  ||" << endl;
- cout << "        --------------------" << endl;
+ cout << "        --------------------" << RESET << endl;
 
 
             exit(1);
@@ -119,7 +120,7 @@ void Farm::farmMenu(string Char_name){
     }
     else{
         cout << "🤠🪓 - 'That wasn't a choice, leave now!'"<< endl;
-        cout << "Enter 'c' to continue" << endl;
+        cout << BLACK << "Press 'c' to continue" << RESET << endl;
         cin >> cont;
     }
     return;
